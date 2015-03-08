@@ -85,6 +85,7 @@ int main(int argc, char *argv[]) {
         }
         
         if(exitsignal == true) {
+            capture.release();
             dmtxDecodeDestroy(&dec);
             dmtxImageDestroy(&img);
             free(pxl);
