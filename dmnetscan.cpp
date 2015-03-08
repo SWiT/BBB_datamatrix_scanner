@@ -84,15 +84,14 @@ int main(int argc, char *argv[]) {
             cout << "." << endl;
         }
         
-        if(exitsignal == true)
+        if(exitsignal == true) {
+            dmtxDecodeDestroy(&dec);
+            dmtxImageDestroy(&img);
+            free(pxl);
+            imwrite("capture.png", frame);
             break;
+        }
     }
-
-    //dmtxDecodeDestroy(&dec);
-    //dmtxImageDestroy(&img);
-    //free(pxl);
-
-    //imwrite("capture.png", frame);
 
     cout << "Exit." <<  endl;
     return 0;
