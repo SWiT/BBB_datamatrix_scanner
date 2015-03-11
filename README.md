@@ -1,4 +1,4 @@
-###BeagleEye Datamatrix scanner
+###BeagleEye network datamatrix scanner
 Copyright (C) 2015 Matthew Gary Switlik
 
 This program is free software: you can redistribute it and/or modify

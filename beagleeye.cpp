@@ -85,14 +85,14 @@ int main(int argc, char *argv[]) {
         if (reg != NULL) {
             msg = dmtxDecodeMatrixRegion(dec, reg, DmtxUndefined);
             if(msg != NULL) {
-                fputs("found: \"", stdout);
+                fputs("\nfound: \"", stdout);
                 fwrite(msg->output, sizeof(unsigned char), msg->outputIdx, stdout);
-                fputs("\"\n", stdout);
+                fputs("\" ", stdout);
                 dmtxMessageDestroy(&msg);
             }
             dmtxRegionDestroy(&reg);
         } else {
-            cout << "." << endl;
+            cout << "." << flush;
         }
         
         if(exitsignal == true) {
