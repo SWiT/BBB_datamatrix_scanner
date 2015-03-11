@@ -20,6 +20,11 @@
 #include <opencv2/opencv.hpp>
 #include <dmtx.h>
 
+#include <sys/socket.h>
+#include <sys/types.h>
+#include <netinet/in.h>
+#include <netdb.h>
+
 using namespace std;
 using namespace cv;
 
@@ -36,6 +41,11 @@ void signalhandler(int num) {
 
 int main(int argc, char *argv[]) {
     printf("\nBeagleEye v0.01 (Ctrl-C to Exit)\n");
+    if (argc != 3) {
+       fprintf(stderr,"usage: %s <server> <port>\n", argv[0]);
+       exit(0);
+    }
+    
     
     size_t          width, height, bytesPerPixel, timeout;
     unsigned char   *pxl;
@@ -46,11 +56,18 @@ int main(int argc, char *argv[]) {
     DmtxTime        time;
     Mat             frame;
     
+    struct  sockaddr_in serv_addr;
+    struct  hostent *server;
+    int     portno;
+    
     width = 1280;
     height = 720;
     bytesPerPixel = 3;
     pxl = (unsigned char *)malloc(width * height * bytesPerPixel);
-        
+    
+    server = gethostbyname(argv[1]);
+    portno = atoi(argv[2]);
+    
     timeout = 500; //ms
 
     signal (SIGINT, signalhandler);
