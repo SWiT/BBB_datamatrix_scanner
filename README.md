@@ -28,7 +28,9 @@ sudo resolvconf -u
 ```
 
 Set the timezone
-```dpkg-reconfigure tzdata```
+```
+dpkg-reconfigure tzdata
+```
 
 Grow the partition
 ```
@@ -66,4 +68,5 @@ Build and run BeagleEye
 git clone https://github.com/SWiT/BeagleEye.git
 cd BeagleEye
 g++ beagleeye.cpp -o beagleeye -lopencv_core -lopencv_videoio -lopencv_imgcodecs -ldmtx
+./beagleeye
 ```
