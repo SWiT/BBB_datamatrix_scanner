@@ -1,4 +1,4 @@
-###BeagleEye network datamatrix scanner
+###BeagleEye datamatrix scanner
 Copyright (C) 2015 Matthew Gary Switlik
 
 This program is free software: you can redistribute it and/or modify
@@ -15,7 +15,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
   
 ###About 
-BeagleEye is a Datamatrix scanner meant for the Beaglebone Black or similar small computer.  This program acquires a frame, scans it for datamatrices, compresses it, then outputs the frame data and all data associated with any found datamatrix over the network to the Robot Fight Club Server.  The BeagleEye scanner uses OpenCV and libdmtx. A Beaglebone Black with a class 10 4GB microSD card is recommended. A flashable image for the 2GB eMMC is planned at somepoint.
+BeagleEye is a Datamatrix scanner meant for the Beaglebone Black or similar small computer.  This program acquires a frame, scans it for datamatrices.  This was just a test project to see if I could get the BBB to scan for datamatrices. All future development will be done under the https://github.com/SWiT/RobotFightClub project.
 
 ###Setup
 Download and install the latest Debian image from http://beagleboard.org/latest-images
@@ -65,7 +65,7 @@ Build and run BeagleEye
 git clone https://github.com/SWiT/BeagleEye.git
 cd BeagleEye
 g++ beagleeye.cpp -o beagleeye -lopencv_core -lopencv_videoio -lopencv_imgcodecs -ldmtx
-./beagleeye 192.168.1.199 3333
+./beagleeye 127.0.0.1 3333
 ```
 
 
